@@ -6,17 +6,30 @@ angular.module('bgblenderApp')
 			templateUrl: '/views/directives/imageBlender.html',
 			restrict: 'E',
 			scope: {
-				bgColor: "="
+				bgColor: "=",
+				imgUrl: "="
 			},
 			link: function postLink(scope, element, attrs) {
+
 				scope.$watch("bgColor", function(newVal, oldVal) {
 					newVal = newVal[0] == "#" ? newVal : "#" + newVal;
 					element.find("#bg").css("background-color", newVal);
 				});
+
+				scope.$watch("imgUrl", function(newVal, oldVal) {
+
+					var el = element.find("#bg"),
+						img = new Image();
+
+					img.src = newVal;
+					img.onload = function() {
+						el.css("background-image", "url(" + this.src + ")");
+						el.css("width", this.width);
+						el.css("height", this.height);
+					};
+				});
 			},
 			controller: function($scope) {
-
-				
 
 			}
 		};

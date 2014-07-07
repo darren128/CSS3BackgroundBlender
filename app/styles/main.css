@@ -2,7 +2,8 @@ body {
     padding: 25px;
 }
 
-#bg {
-  min-width: 200px;
-  min-height: 200px;
+canvas#bg {
+    width: 100px;
+    height: 100px;
+    background-blend-mode: multiply;
 }
