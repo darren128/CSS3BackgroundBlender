@@ -7,7 +7,8 @@ angular.module('bgblenderApp')
 			restrict: 'E',
 			scope: {
 				bgColor: "=",
-				imgUrl: "="
+				imgUrl: "=",
+				blendMode: "="
 			},
 			link: function postLink(scope, element, attrs) {
 
@@ -27,6 +28,10 @@ angular.module('bgblenderApp')
 						el.css("width", this.width);
 						el.css("height", this.height);
 					};
+				});
+
+				scope.$watch("blendMode", function(newVal, oldVal) {
+					element.find("#bg").css("background-blend-mode", newVal);
 				});
 			},
 			controller: function($scope) {

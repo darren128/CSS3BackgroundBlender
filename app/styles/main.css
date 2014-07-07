@@ -2,8 +2,16 @@ body {
     padding: 25px;
 }
 
+#preview {
+  height: 25px;
+}
+
+.row > div {
+  padding: 15px;
+}
+
 canvas#bg {
-    width: 100px;
-    height: 100px;
+    width: 0;
+    height: 0;
     background-blend-mode: multiply;
 }

@@ -1,10 +1,22 @@
 <div>
   <div class="row">
-  <div class="col-lg-3">
+    <div class="col-lg-3">
+      <label>Background Color:</label>
       <input type="text" ng-model="color" class="form-control" />
     </div>
     <div class="col-lg-9">
-      <input type="text" ng-model="image" class="form-control" />
+      <label>Image Url:</label>
+      <input type="text" ng-model="image" class="form-control" />      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">      
+      <div id="preview" style="background-color: {{color}}"></div>
+    </div>
+    <div class="col-lg-9">
+      <label>Blend Mode:</label>  
+      <select ng-model="blendMode" ng-options="o as o for o in blendOptions">
+      </select>
     </div>
   </div>
   <div class="row">
@@ -12,7 +24,7 @@
       <ng-farbtastic ng-model="color"></ng-farbtastic>
     </div>
     <div class="col-lg-9">
-      <image-blender bg-color="color" img-url="image"></image-blender>
+      <image-blender bg-color="color" img-url="image" blend-mode="blendMode"></image-blender>
     </div>
   </div>
 </div>
